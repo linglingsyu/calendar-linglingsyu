@@ -98,10 +98,8 @@
             ?>
 
             <div class="btn">
-                <ul>
-                    <li><a class="lastM" href="calendar.php?year=<?= $ylast ?>&month=<?= $mlast ?>">Last month</a></li>
+                    <a class="lastM" href="calendar.php?year=<?= $ylast ?>&month=<?= $mlast ?>">Last month</a>
                     <form action="?" method="get">
-                </ul>
                 <div class="selec">
                     <span>西元</span>
                     <select name="year" id="">
@@ -133,9 +131,7 @@
                     <input type="submit" value="查詢">
                     </form>
                 </div>
-                <ul>
-                    <li><a class="nextM" href="calendar.php?year=<?= $ynext ?>&month=<?= $mnext ?>">Next month</a></li>
-                </ul>
+                <a class="nextM" href="calendar.php?year=<?= $ynext ?>&month=<?= $mnext ?>">Next month</a>
                 <a class="thisM" href="calendar.php">本月</a>
             </div>
     </div>
