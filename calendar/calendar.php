@@ -33,6 +33,7 @@
             <span><?= date('F', mktime(0, 0, 0, $month)) ?></span>
         </div>
         <img src="https://i.imgur.com/IlRhXr5.gif" class="wrap_bg" alt="bg2">
+        
     </div>
     <div class="container">
         <div class="time"><?= $this_year . " / " . $this_month . " / " . $this_day ?></div>
