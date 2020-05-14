@@ -1,23 +1,14 @@
 html,body{
   height: 100%;
 }
-@media screen and  ( min-width:978px) and (max-width:1299px){
-  body{
-    background:rgb(255, 167, 3);
-  }
-}
-@media screen and  ( min-width:1300px) and (max-width:1649px){
-  body{
-    background:rgb(192, 163, 16);
-  }
-  tr,td {
-    width: 0;
-    height:0;
-}
-}
+
 body {
   font-family: "Roboto","Noto Sans TC", sans-serif;
-  background:#FFE66F url(https://i.imgur.com/P9MNu36.gif) no-repeat bottom left;
+  background-image:url(https://i.imgur.com/P9MNu36.gif);
+  background-repeat:no-repeat;
+  background-position:bottom left;
+  background-size: auto;
+  background-color:#FFE66F;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -51,7 +42,7 @@ body {
     width: 100%;
     margin: 0 30%;
     position: relative;
-    left:13%;
+    left:18%;
   }
 
 .calendar{
@@ -116,8 +107,6 @@ table td:last-child {
   line-height: 40px;
 }
 
-
-
 .btn {
   width: 100%;
   text-align: center;
@@ -126,7 +115,6 @@ table td:last-child {
   align-items: center;
   padding-bottom: 2%;
 }
-
 
 .btn a{
   margin: 0 2%;
@@ -254,5 +242,129 @@ select:focus,input[type="submit"]:focus{
 
 
 
+@media screen and  ( min-width:1024px) and (max-width:1299px){
+body{
+  background-size:50%;
+}
+.wrap .wrap_text{
+  font-size: 4vw;
+}
+.wrap_bg{
+  display: none;
+}
 
+tr,td {
+width: 3rem;
+height:3rem;
+line-height: 3rem; 
+}
 
+.btn {
+  flex-direction: column;
+  position: fixed;
+  right:-45%;
+  bottom: 10%;
+}
+
+select{
+  width: 5.5vw;
+  display: block;
+  margin: 10px 0;
+  padding: 2px;
+}
+
+select[name="month"]{
+  width: 5.5vw;
+}
+
+input{
+  display: block;
+  margin: 10px 0;
+}
+
+input[type="submit"]{
+  width: 5vw;
+}
+
+.btn a{
+  margin: 10px 0;
+}
+
+.time_now{
+  margin-left: 15%;
+  margin-top: 5%;
+}
+}
+
+@media screen and  ( min-width:800px) and (max-width:1024px){
+  body{
+    background-size:50%;
+  }
+  .wrap .wrap_text{
+    font-size: 4vw;
+    margin-left: 35%;
+  }
+  .wrap_bg{
+    display: none;
+  }
+  
+  tr,td {
+  width: 2.5rem;
+  height:2.5rem;
+  line-height: 2.5rem; 
+  font-size: 1rem;
+  }
+
+  .holiday{
+    font-size: 10px;
+    display:block;
+    font-weight: normal;
+ 
+  }
+  
+  .btn {
+    flex-direction: column;
+    position: fixed;
+    right:-45%;
+    bottom: 10%;
+  }
+  
+  select{
+    width: 6vw;
+    display: block;
+    margin: 5px 0;
+    padding: 2px;
+    font-size: 12px;
+  }
+  
+  select[name="month"]{
+    width: 6vw;
+  }
+  
+  input{
+    display: block;
+    margin: 5px 0;
+  }
+  
+  input[type="submit"]{
+    width: 6vw;
+  }
+  
+  .btn a{
+    margin: 5px 0;
+  }
+  
+  .time_now{
+    margin-left: 15%;
+    margin-top: 5%;
+  }
+  .today{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-color: #FFE66F;
+    border-radius: 30px;
+    line-height: 30px;
+  }
+  
+}
