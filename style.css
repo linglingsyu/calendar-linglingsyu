@@ -15,21 +15,14 @@ body {
   flex-wrap: wrap;
 }
 
-.wrap{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.wrap_text{
   width: 100%;
   font-family: "Fredoka One","Roboto";
-  position: relative;
-  bottom:-5%;
-}
-
-
-.wrap .wrap_text{
   font-size: 4vw;
-  text-align: right;
-  margin-left: 30%;
+  text-align: center;
+  margin-left: 36%;
+  margin-bottom: -5%;
+
 }
 
 .wrap_bg{
@@ -63,16 +56,17 @@ tr,td {
   font-size: 1.5rem;
   text-align: center;
   position: relative;
-  line-height: 4.5vw;
+  line-height: 3vw;
 }
 
 .holiday{
   font-size: 10px;
   display: block;
-  line-height: 0;
   color:rgb(38, 31, 128);
   font-weight: bold;
+  line-height: 1;
 }
+
 
 
 table td:first-child {
@@ -224,7 +218,7 @@ select:focus,input[type="submit"]:focus{
   position: absolute;
   top:0;
   left:0;
-  margin-left: 10%;
+  margin-left: 13%;
   margin-top: 10%;
 }
 
@@ -302,11 +296,11 @@ input[type="submit"]{
 }
 }
 
-@media screen and  ( min-width:800px) and (max-width:1024px){
+@media screen and  ( min-width:800px) and (max-width:1023px){
   body{
     background-size:50%;
   }
-  .wrap .wrap_text{
+  .wrap_text{
     font-size: 4vw;
     margin-left: 35%;
   }
@@ -372,5 +366,43 @@ input[type="submit"]{
     border-radius: 30px;
     line-height: 30px;
   }
+}
+
+@media screen and  ( min-width:600px) and (max-width:799px){
+  body{
+    background-image:none;
+    flex-direction: column;
+  }
+
+  .container{
+    width: 70%;
+    margin:0 auto;
+    position: static;
+
+  }
+
+  .wrap_bg{
+    display: none;
+  }
+
+  .wrap_text{
+    margin:0 auto;
+
+  }
+  .time_now{
+    position: static;
+    margin:0 auto;
+  }
+
+  tr,td{
+    font-size:12px;
+    
+  }
+
+  .holiday{
+    font-size:10px;
+  }
+
+
   
 }

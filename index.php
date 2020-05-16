@@ -30,12 +30,9 @@
         <div class="time"><?= $this_year . " / " . $this_month . " / " . $this_day ?></div>
         <div id="clock"></div>
     </div>
-    <div class="wrap">
         <div class="wrap_text">
-            <span><?= $year ?> , </span>
-            <span><?= date('F', mktime(0, 0, 0, $month)) ?></span>
+            <span><?= $year ?> , <?= date('F', mktime(0, 0, 0, $month)) ?></span>
         </div>
-    </div>
 
     <div class="container">
         <div class="calendar">
@@ -69,42 +66,46 @@
                     <td>TUR</td>
                     <td>SAT</td>
                 </tr>
-                <?php
-                $holiday = ["11" => "元旦", "214" => "西洋情人節", "228" => "和平紀念日", "38" => "婦女節", "312" => "植樹節", "314" => "白色情人節", "329" => "青年節", "412" => "復活節", "422" => "世界地球日", "51" => "勞動節", "512" => "國際護士節", "715" => "解嚴紀念日", "88" => "父親節", "814" => "空軍節", "93" => "軍人節", "928" => "教師節", "1010" => "國慶日", "1024" => "臺灣聯國日", "1025" => "光復節", "1031" => "萬聖節", "1112" => "國父誕辰", "1225" => "行憲紀念日", "1225" => "聖誕節"];
-                $is_this_month = ($year == $this_year && $month == $this_month);
+<?php
+$holiday = ["0101" => "元旦", "0214" => "西洋情人節", "0228" => "和平紀念日", "0308" => "婦女節", "0312" => "植樹節", "0314" => "白色情人節", "0329" => "青年節", "0412" => "復活節", "0422" => "世界地球日", "0501" => "勞動節", "0512" => "國際護士節", "0715" => "解嚴紀念日", "0808" => "父親節", "0814" => "空軍節", "0903" => "軍人節", "0928" => "教師節", "1010" => "國慶日", "1024" => "臺灣聯國日", "1025" => "光復節", "1031" => "萬聖節", "1112" => "國父誕辰", "1225" => "行憲紀念日", "1225" => "聖誕節"];
+$is_this_month = ($year == $this_year && $month == $this_month);
 
-                for ($i = 0; $i < 6; $i++) {
-                    echo "<tr>";
-                    for ($j = 0; $j < 7; $j++) {
-                        if ($i == 0 && $j < $firstday) {
-                            echo "<td>";
-                            echo "</td>";
-                        } else {
-                            $day = $i * 7 + $j + 1  - $firstday;
-
-                            if ($day > $lastday) {
-                                echo "<td>";
-                            } else {
-                                if ($is_this_month && ($day == $this_day)) {
-                                    echo "<td>" . "<span class='today'>" . $day . "</span>";
-                                } else {
-                                    echo "<td>" . $day;
-                                    $is_holiday = $month . $day;
-                                    foreach ($holiday as $key => $value) {
-                                        if ($is_holiday == $key) {
-                                            echo  "<span class='holiday'>" . $value . "</span>";
-                                        }
-                                    }
-                                }
-                            }
-                            echo "</td>";
-                        }
-                    }
-                    echo "</tr>";
+for ($i = 0; $i < 6; $i++) {
+    echo "<tr>";
+    for ($j = 0; $j < 7; $j++) {
+        echo "<td>";
+        if ($i != 0 || $j >= $firstday) {
+            $day = $i * 7 + $j + 1  - $firstday;
+            if ($day <= $lastday) {
+                if ($is_this_month && ($day == $this_day)) {
+                    echo "<span class='today'>" . $day . "</span>";
+                } else {
+                    echo $day;
                 }
-                echo "</table>";
+                $arr=[];
+                $holiday_key = sprintf("%02d%02d",$month,$day);
+                if(array_key_exists($holiday_key, $holiday)){
+                    $arr[]=$holiday[$holiday_key];
+                }
+                if ($month == 5 && $j == 0 && $day >= 8 && $day <= 14) {
+                    $arr[]="母親節";
+                }
+                if($arr){
+                    echo  "<span class='holiday'>" . array_shift($arr);
+                    foreach($arr as $value){
+                        echo "<br>".$value;
+                    }
+                    echo  "</span>";
+                }
+            }
+        }
+        echo "</td>";
+    }
+    echo "</tr>";
+}
+echo "</table>";
 
-                ?>
+?>
                 <div class="btn">
                     <a class="lastM" href="index.php?year=<?= $ylast ?>&month=<?= $mlast ?>">Prev</a>
                     <form action="?" method="get">
@@ -159,7 +160,6 @@
             document.getElementById('clock').innerHTML = hh + " : " + mm + " : " + ss;
             var timeoutId = setTimeout(startTime, 500);
         }
-
         function checkTime(i) {
             if (i < 10) {
                 i = "0" + i;
