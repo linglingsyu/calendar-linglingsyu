@@ -56,7 +56,7 @@ tr,td {
   font-size: 1.5rem;
   text-align: center;
   position: relative;
-  line-height: 3vw;
+  line-height: 3.5vw;
 }
 
 .holiday{
@@ -64,15 +64,17 @@ tr,td {
   display: block;
   color:rgb(38, 31, 128);
   font-weight: bold;
-  line-height: 1;
+  line-height: 0;
+  margin-top:-10%;
 }
 
-
+.holiday p{
+  margin:10px 0;
+}
 
 table td:first-child {
   color: red;
   font-weight: bold;
-
 }
 
 table tr:nth-child(1) td:nth-child(1){
@@ -85,6 +87,7 @@ table tr:nth-child(1) td:nth-child(7){
 
 table tr:first-child {
   background-color: rgb(226, 218, 169);
+  height: 3.5vw;
 }
 
 table td:last-child {
@@ -234,6 +237,7 @@ select:focus,input[type="submit"]:focus{
   margin-left: 10%;
 }
 
+
 @media screen and (min-width:1300px) and (max-width:1500px){
   tr,td{
     font-size: 1.2rem;
@@ -254,10 +258,8 @@ body{
 tr,td {
 width: 3rem;
 height:3rem;
-line-height: 3rem; 
+line-height: 3rem;
 }
-
-
 
 .btn {
   flex-direction: column;
@@ -368,17 +370,211 @@ input[type="submit"]{
   }
 }
 
+
+
 @media screen and  ( min-width:600px) and (max-width:799px){
   body{
     background-image:none;
     flex-direction: column;
+    justify-content: flex-start;
   }
 
   .container{
     width: 70%;
     margin:0 auto;
     position: static;
+  }
 
+  .wrap_text{
+    margin-left:0;
+    margin-bottom: 1%;
+    margin-top:3%;
+    font-size: 8vw;
+
+  }
+  .time_now{
+    position: static;
+    margin:0 auto;
+    margin-top:3%;
+    font-size: 7vw;
+    color: rgb(15, 15, 97);
+  }
+
+  tr,td{
+    font-size:14px;
+    height: 7vw;
+    line-height: 7vw;
+  }
+
+  .holiday{
+    font-size:10px;
+    line-height: 0;
+  }
+
+  .today{
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    line-height: 30px;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 2%;
+    position: absolute;
+    bottom:17%;
+    left:0;
+  }
+
+  .btn a{
+    text-decoration: none;
+    color: chocolate;
+    background-color:#FFE66F;
+    padding:0;
+    border-radius:0;
+    position: relative;
+    font-size: 0.8rem;
+    overflow: visible;
+  }
+
+  .btn a:hover{
+    color: rgb(108, 69, 172);
+  }
+
+  .selec{
+    position:relative;
+    top:50px;
+    margin-bottom:1%;
+  }
+
+  .btn .nextM{
+    position: absolute;
+    right:28%;
+    top:200%;
+  }
+
+  .btn .lastM{
+    position: absolute;
+    left:28%;
+    top:200%;
+  }
+
+  .btn .nextM::after,.btn .nextM::before{
+    content: "";
+    width: 0%;
+    height: 0%;
+    position: static;
+    background-color: none;
+    transition: none;
+    transition-timing-function: linear ;
+    transform: none; 
+  }
+
+  .btn .nextM::before{
+    content:" >> ";
+    background-color:#FFE66F;
+  }
+  
+  .btn .nextM:hover::before{
+    color:#00cc00;
+    margin-right: 3px;
+    font-size: 14px;
+  }
+
+  .btn .nextM::after{
+    content: " month";
+    background-color:#FFE66F;
+  }
+  
+  .btn .lastM::after,.btn .lastM::before{
+    content: "";
+    width: 0%;
+    height: 0%;
+    position: static;
+    background-color: none;
+    transition: none;
+    transition-timing-function: linear ;
+    transform: none; 
+  }
+
+  .btn .lastM::before{
+    content:"   <<";
+    background-color:#FFE66F;
+    position: absolute;
+    left:110%;
+
+  }
+  
+  .btn .lastM:hover::before{
+    color:#00cc00;
+    margin-left: 3px;
+    font-size: 14px;
+  }
+
+  .btn .lastM::after{
+    content: " month";
+    background-color:#FFE66F;
+  }
+
+  .btn form{
+    margin:0 -20% ;
+    width: 100%;
+  }
+
+  .btn form select{
+    width: 15%;
+    height: 20%;
+    padding: 5px 0;
+  }
+
+  input[type="submit"]{
+    display: inline-block;
+    width: 9vw;
+    height:4vw;
+    position: absolute;
+    top:140%;
+    right:45.5%;
+  }
+
+  .btn .thisM{
+    position: absolute;
+    top:254%;
+    width: 30%;
+    height: 30px;
+    line-height:30px;
+  }
+
+  .btn .thisM:hover{
+    border-radius:0;
+    background-color: rgb(53, 6, 80);
+    color:rgb(0, 255, 98);
+  }
+
+}
+
+
+@media screen and  (min-width:400px) and (max-width:599px){
+
+  body{
+    background-image:none;
+    flex-direction: column;
+    justify-content: space-between;
+
+  }
+
+  .container{
+    width: 100%;
+    position: static;
+    left:0;
+    margin:0;
+  }
+
+  .calendar{
+    border:none;
   }
 
   .wrap_bg{
@@ -386,23 +582,224 @@ input[type="submit"]{
   }
 
   .wrap_text{
-    margin:0 auto;
-
+    margin:0;
+    font-size: 2.5rem;
   }
+
   .time_now{
     position: static;
-    margin:0 auto;
+    margin:0;
+    background-color: rgb(31, 10, 88);
+    width: 100%;
+    text-align: right;
+    font-size: 1.5rem;
+  }
+
+  #clock,.time{
+    margin: 5px 0;
+    padding-right:10px;
+    color:#fff;
   }
 
   tr,td{
-    font-size:12px;
-    
+    width: 3.5rem;
+    height: 3rem;
+    font-size: 1rem;
+    line-height:3rem;
+  }
+  
+  table tr:nth-child(2),table tr:nth-child(3),table tr:nth-child(4),table tr:nth-child(5),table tr:nth-child(6){
+    border-bottom:1px solid #e1e2a2 ;
   }
 
-  .holiday{
-    font-size:10px;
+  .selec{
+  position: fixed;
+  left:0;
+  top:35vh;
+  width: 100%;
+  }
+  
+  .btn form select{
+    width: 20%;
+    height: 20%;
+    padding: 5px 0;
   }
 
+  .selec select[name="month"]{
+    width: 15%;
+  }
 
+  input[type="submit"]{
+    display: inline-block;
+    width: 15%;
+    padding: 5px 0;
+    height:20%;
+  }
+
+}
+
+
+@media screen and  (min-width:350px) and (max-width:399px){
+
+  body{
+    background-image:none;
+    flex-direction: column;
+    justify-content: space-between;
+
+  }
+
+  .container{
+    width: 100%;
+    position: static;
+    left:0;
+    margin:0;
+  }
+
+  .calendar{
+    border:none;
+  }
+
+  .wrap_bg{
+    display: none;
+  }
+
+  .wrap_text{
+    margin:0;
+    font-size: 2rem;
+    margin-bottom: 1%;
+  }
+
+  .time_now{
+    position: static;
+    margin:0;
+    background-color: rgb(31, 10, 88);
+    width: 100%;
+    text-align: right;
+    font-size: 1.5rem;
+  }
+
+  #clock,.time{
+    margin: 5px 0;
+    padding-right:10px;
+    color:#fff;
+  }
+
+  tr,td{
+    width: 3.5rem;
+    height: 3rem;
+    font-size: 1rem;
+    line-height:3rem;
+  }
+  
+  table tr:nth-child(2),table tr:nth-child(3),table tr:nth-child(4),table tr:nth-child(5),table tr:nth-child(6){
+    border-bottom:1px solid #e1e2a2 ;
+  }
+
+  .selec{
+  position: absolute;
+  left:0;
+  top:36vh;
+  width: 100%;
+  }
+  
+  .btn form select{
+    width: 20%;
+    height: 20%;
+    padding: 5px 0;
+  }
+
+  .selec select[name="month"]{
+    width: 15%;
+  }
+
+  input[type="submit"]{
+    display: inline-block;
+    width: 15%;
+    padding: 5px 0;
+    height:20%;
+  }
+  
+}
+
+@media screen and (min-width:300px) and (max-width:349px){
+
+  body{
+    background-image:none;
+    flex-direction: column;
+    justify-content: space-between;
+
+  }
+
+  .container{
+    width: 100%;
+    position: static;
+    left:0;
+    margin:0;
+  }
+
+  .calendar{
+    border:none;
+  }
+
+  .wrap_bg{
+    display: none;
+  }
+
+  .wrap_text{
+    margin:0;
+    font-size: 2rem;
+    margin-bottom: 1%;
+  }
+
+  .time_now{
+    position: static;
+    margin:0;
+    background-color: rgb(31, 10, 88);
+    width: 100%;
+    text-align: right;
+    font-size: 1.5rem;
+  }
+
+  #clock,.time{
+    margin: 5px 0;
+    padding-right:10px;
+    color:#fff;
+  }
+
+  tr,td{
+    width: 3.5rem;
+    height: 3rem;
+    font-size: 0.8rem;
+    line-height:3rem;
+    background-color: #fff;
+  }
+  
+  table tr:nth-child(2),table tr:nth-child(3),table tr:nth-child(4),table tr:nth-child(5),table tr:nth-child(6){
+    border-bottom:1px solid #e1e2a2 ;
+  }
+
+  .selec{
+  position: absolute;
+  left:0;
+  top:26vh;
+  width: 100%;
+  }
+  
+  .btn form select{
+    width: 20%;
+    height: 20%;
+    padding: 5px 0;
+  }
+
+  .selec select[name="month"]{
+    width: 15%;
+  }
+
+  input[type="submit"]{
+    display: inline-block;
+    width: 15%;
+    padding: 5px 0;
+    height:20%;
+  }
   
 }

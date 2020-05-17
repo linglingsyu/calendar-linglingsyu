@@ -34,6 +34,7 @@
             <span><?= $year ?> , <?= date('F', mktime(0, 0, 0, $month)) ?></span>
         </div>
 
+
     <div class="container">
         <div class="calendar">
             <?php
@@ -93,7 +94,7 @@ for ($i = 0; $i < 6; $i++) {
                 if($arr){
                     echo  "<span class='holiday'>" . array_shift($arr);
                     foreach($arr as $value){
-                        echo "<br>".$value;
+                        echo "<p>".$value ."</p>";
                     }
                     echo  "</span>";
                 }
